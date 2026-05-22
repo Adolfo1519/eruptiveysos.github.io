@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>International Collaboration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a18;
+      --muted: #6b6b65;
+      --faint: #e8e6df;
+      --bg: #f9f7f2;
+      --white: #ffffff;
+      --accent: #2d4a3e;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--faint);
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* HERO */
+    .hero {
+      padding: 7rem 2rem 5rem;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--faint);
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 1.75rem;
+      color: var(--ink);
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.8;
+    }
+
+    /* SECTION SHARED */
+    section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      border-bottom: 1px solid var(--faint);
+    }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .about-grid h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+    .about-grid p { color: var(--muted); font-size: 0.95rem; }
+
+    /* PARTNERS */
+    .partners-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--faint);
+      border: 1px solid var(--faint);
+    }
+    .partner-item {
+      background: var(--bg);
+      padding: 2rem 1.5rem;
+    }
+    .partner-country {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .partner-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    .partner-desc { font-size: 0.83rem; color: var(--muted); }
+
+    /* FOCUS AREAS */
+    .focus-list { display: flex; flex-direction: column; gap: 0; }
+    .focus-item {
+      display: flex;
+      align-items: baseline;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--faint);
+    }
+    .focus-item:first-child { border-top: 1px solid var(--faint); }
+    .focus-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--muted);
+      min-width: 2rem;
+    }
+    .focus-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      flex: 1;
+    }
+    .focus-desc { font-size: 0.85rem; color: var(--muted); max-width: 340px; }
+
+    /* CONTACT */
+    .contact-inner { max-width: 500px; }
+    .contact-inner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 0.75rem;
+    }
+    .contact-inner p { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
+    .contact-link {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .contact-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* FOOTER */
+    footer {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p { font-size: 0.78rem; color: var(--muted); }
+
+    @media (max-width: 640px) {
+      .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .partners-list { grid-template-columns: 1fr; }
+      .focus-item { flex-direction: column; gap: 0.25rem; }
+      nav { padding: 1rem; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-logo">Global Collab</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#focus">Focus</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <p class="hero-eyebrow">International Collaboration</p>
+    <h1>Together across<br>borders.</h1>
+    <p>A partnership built on shared goals, mutual respect, and the belief that meaningful progress happens when diverse minds work as one.</p>
+  </div>
+
+  <section id="about">
+    <p class="section-label">About</p>
+    <div class="about-grid">
+      <div>
+        <h2>Who we are</h2>
+        <p>We are a coalition of researchers, institutions, and practitioners united by a common purpose. Our work spans continents and disciplines.</p>
+      </div>
+      <div>
+        <h2>What we do</h2>
+        <p>We facilitate joint research, knowledge exchange, and collaborative projects that would not be possible working in isolation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners">
+    <p class="section-label">Partners</p>
+    <div class="partners-list">
+      <div class="partner-item">
+        <p class="partner-country">Germany</p>
+        <p class="partner-name">Berlin Institute</p>
+        <p class="partner-desc">Research and policy expertise</p>
+      </div>
+      <div class="partner-item">
+        <p class="partner-country">Japan</p>
+        <p class="partner-name">Kyoto Foundation</p>
+        <p class="partner-desc">Technology and innovation</p>
+      </div>
+      <div class="partner-item">
+        <p class="partner-country">Brazil</p>
+        <p class="partner-name">São Paulo Center</p>
+        <p class="partner-desc">Community and fieldwork</p>
+      </div>
+      <div class="partner-item">
+        <p class="partner-country">Kenya</p>
+        <p class="partner-name">Nairobi Hub</p>
+        <p class="partner-desc">Local knowledge and outreach</p>
+      </div>
+      <div class="partner-item">
+        <p class="partner-country">Canada</p>
+        <p class="partner-name">Toronto Network</p>
+        <p class="partner-desc">Data science and analytics</p>
+      </div>
+      <div class="partner-item">
+        <p class="partner-country">India</p>
+        <p class="partner-name">Bengaluru Lab</p>
+        <p class="partner-desc">Engineering and systems</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="focus">
+    <p class="section-label">Focus Areas</p>
+    <div class="focus-list">
+      <div class="focus-item">
+        <span class="focus-num">01</span>
+        <span class="focus-title">Shared Research</span>
+        <span class="focus-desc">Joint studies and publications across institutions</span>
+      </div>
+      <div class="focus-item">
+        <span class="focus-num">02</span>
+        <span class="focus-title">Knowledge Exchange</span>
+        <span class="focus-desc">Fellowships, secondments, and collaborative workshops</span>
+      </div>
+      <div class="focus-item">
+        <span class="focus-num">03</span>
+        <span class="focus-title">Policy Engagement</span>
+        <span class="focus-desc">Evidence-based input to international bodies</span>
+      </div>
+      <div class="focus-item">
+        <span class="focus-num">04</span>
+        <span class="focus-title">Capacity Building</span>
+        <span class="focus-desc">Supporting emerging researchers and institutions</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <div class="contact-inner">
+      <h2>Get in touch</h2>
+      <p>Interested in joining or learning more about our work? We welcome new partners and collaborators from all fields.</p>
+      <a class="contact-link" href="mailto:hello@example.com">hello@example.com</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 International Collaboration</p>
+    <p>All rights reserved</p>
+  </footer>
+
+</body>
+</html>
